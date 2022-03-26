@@ -5,11 +5,30 @@ import dig from "object-dig"
 import { AuthContext } from "../provider/AuthProvider"
 import * as Api from "../service/api"
 
+interface Item {
+  id: string,
+  content: string,
+  isComplete: boolean
+}
+
 const Dashboard = () => {
   const currentUser = useContext(AuthContext)
 
-  const [inputtedWord, setInputtedWord] = useState<string>("");
-  console.log(inputtedWord)
+  const [inputtedWord, setInputtedWord] = useState<string>("")
+  const [itemList, setItemList] = useState<Item[]>([])
+
+  console.log(itemList)
+
+  const fetch = async () => {
+    if (dig(currentUser, "currentUser", "uid")) {
+      const itemList = await Api.TodoGet(currentUser?.currentUser?.uid)
+      await setItemList(itemList)
+    }
+  }
+  
+  useEffect(() => {
+    fetch()
+  }, [currentUser])
 
   const post = () => {
     Api.addItem(inputtedWord, currentUser?.currentUser?.uid)
