@@ -28,3 +28,13 @@ export const signInWithGoogle = () => {
       console.log(err)
     })
 }
+
+export const logOut = () => {
+  firebase.auth().signOut()
+    .then(() => {
+      document.location.reload()
+    })
+    .catch((err) => {
+      console.log("ログアウト時にエラー発生\nfirebase.ts\n", err)
+    })
+}
