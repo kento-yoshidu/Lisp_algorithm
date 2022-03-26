@@ -17,6 +17,8 @@ if (!firebase.apps.length) {
 
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 
+export const auth = firebase.auth()
+
 export const signInWithGoogle = () => {
   firebase.auth().signInWithPopup(googleProvider)
     .then((res) => {
