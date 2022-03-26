@@ -22,9 +22,6 @@ export const db = firebase.firestore()
 
 export const signInWithGoogle = () => {
   firebase.auth().signInWithPopup(googleProvider)
-    .then((res) => {
-      console.log(res)
-    })
     .catch((err) => {
       console.log(err)
     })
