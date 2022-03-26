@@ -10,12 +10,6 @@ export const addItem = (content: string | null, uid: string | undefined) => {
   })
 }
 
-interface Item {
-  id: string,
-  content: string,
-  isComplete: boolean
-}
-
 export const TodoGet = async (uid?: string) => {
   const todo = await db
     .collection("todo")

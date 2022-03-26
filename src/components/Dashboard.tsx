@@ -5,19 +5,13 @@ import dig from "object-dig"
 import { AuthContext } from "../provider/AuthProvider"
 import * as Api from "../service/api"
 
-interface Item {
-  id: string,
-  content: string,
-  isComplete: boolean
-}
+import TodoList from "./TodoList"
 
 const Dashboard = () => {
   const currentUser = useContext(AuthContext)
 
   const [inputtedWord, setInputtedWord] = useState<string>("")
   const [itemList, setItemList] = useState<Item[]>([])
-
-  console.log(itemList)
 
   const fetch = async () => {
     if (dig(currentUser, "currentUser", "uid")) {
@@ -30,14 +24,16 @@ const Dashboard = () => {
     fetch()
   }, [currentUser])
 
-  const post = () => {
-    Api.addItem(inputtedWord, currentUser?.currentUser?.uid)
-    setInputtedWord("")
+  const post = async () => {
+    await Api.addItem(inputtedWord, currentUser?.currentUser?.uid)
+    await setInputtedWord("")
+    fetch()
   }
 
   return (
     <>
       <h1>ダッシュボード</h1>
+
       {dig(currentUser, "currentUser", "uid") && (
         <form>
           <input
@@ -54,6 +50,10 @@ const Dashboard = () => {
           </button>
         </form>
       )}
+
+      <TodoList
+        todos={itemList}
+      />
     </>
   )
 }
