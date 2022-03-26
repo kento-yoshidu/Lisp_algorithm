@@ -53,6 +53,7 @@ const Dashboard = () => {
 
       <TodoList
         todos={itemList}
+        fetch={fetch}
       />
     </>
   )
