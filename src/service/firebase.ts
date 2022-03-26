@@ -17,6 +17,9 @@ if (!firebase.apps.length) {
 
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 
+export const auth = firebase.auth()
+export const db = firebase.firestore()
+
 export const signInWithGoogle = () => {
   firebase.auth().signInWithPopup(googleProvider)
     .then((res) => {
@@ -24,5 +27,15 @@ export const signInWithGoogle = () => {
     })
     .catch((err) => {
       console.log(err)
+    })
+}
+
+export const logOut = () => {
+  firebase.auth().signOut()
+    .then(() => {
+      document.location.reload()
+    })
+    .catch((err) => {
+      console.log("ログアウト時にエラー発生\nfirebase.ts\n", err)
     })
 }
