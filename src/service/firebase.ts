@@ -18,6 +18,7 @@ if (!firebase.apps.length) {
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 
 export const auth = firebase.auth()
+export const db = firebase.firestore()
 
 export const signInWithGoogle = () => {
   firebase.auth().signInWithPopup(googleProvider)

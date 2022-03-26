@@ -12,7 +12,7 @@ const Header: React.VFC = () => {
 
   return (
     <header>
-      {dig(currentUser, "currentUser") ? (
+      {dig(currentUser, "currentUser", "uid") ? (
         <button onClick={logOut}>
           ログアウト
         </button>
