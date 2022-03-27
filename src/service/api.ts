@@ -9,3 +9,28 @@ export const addItem = (content: string | null, uid: string | undefined) => {
     createdAt: firebase.firestore.FieldValue.serverTimestamp()
   })
 }
+
+export const TodoGet = async (uid?: string) => {
+  const todo = await db
+    .collection("todo")
+    .orderBy("createdAt", "desc")
+    .where("uid", "==", uid)
+  
+    return todo.get().then((snapShot) => {
+      const todos: Item[] = []
+
+      snapShot.forEach((doc) => {
+        todos.push({
+          id: doc.id,
+          content: doc.data().content,
+          isComplete: doc.data().isComplete
+        })
+      })
+
+      return todos
+    })
+}
+
+export const DeleteItem = (id: string) => {
+  db.collection("todo").doc(id).delete()
+}
