@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '../scss/globals.scss'
 import type { AppProps } from 'next/app'
 import "../service/firebase"
 
@@ -10,7 +10,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
       <Header />
-      <Dashboard />
       <Component {...pageProps} />
     </AuthProvider>
   )
