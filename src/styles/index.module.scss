@@ -1,0 +1,28 @@
+.main {
+  width: max(50%, 324px);
+  margin: 50px auto;
+}
+
+.message {
+  margin-bottom: 30px;
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.loginButton {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  color: var(--main-color);
+  font-size: 2.3rem;
+  cursor: pointer;
+  transition-duration: 0.25s;
+
+  &:hover {
+    background-color: var(--main-color);
+    color: #fff;
+  }
+}
