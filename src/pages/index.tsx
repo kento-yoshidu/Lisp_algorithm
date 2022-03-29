@@ -1,6 +1,5 @@
 import React, { useContext } from "react"
 import type { NextPage } from 'next'
-import Link from "next/link"
 
 // @ts-ignore
 import dig from "object-dig"
@@ -9,22 +8,28 @@ import { signInWithGoogle } from "../service/firebase"
 
 import Dashboard from "../components/Dashboard"
 
+import * as Styles from "../styles/index.module.scss"
+
 const Home: NextPage = () => {
   const currentUser = useContext(AuthContext)
 
   return (
-    <>
+    <main className={Styles.main}>
       {dig(currentUser, "currentUser", "uid") ? (
         <Dashboard />
       ) : (
         <>
-          <h1>ログインしてください。</h1>
-          <button type="button" onClick={signInWithGoogle}>
+          <p className={Styles.message}>ログインしてください。</p>
+          <button
+            type="button"
+            className={Styles.loginButton}
+            onClick={signInWithGoogle}
+          >
             ログイン
           </button>
         </>
       )}
-    </>
+    </main>
   )
 }
 

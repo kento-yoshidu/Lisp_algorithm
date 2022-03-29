@@ -1,0 +1,19 @@
+.todoList {
+}
+
+.listItem {
+  margin: 0 auto;
+  padding: 12px 20px;
+  width: max(60%, 312px);
+  border-top: 2px solid #888;
+
+  &:last-of-type {
+    border-bottom: 2px solid #888;
+  }
+}
+
+.title {
+  font-size: clamp(2.2rem, 3.5vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: 1px;
+}

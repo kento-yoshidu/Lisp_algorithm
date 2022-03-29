@@ -7,6 +7,10 @@ import * as Api from "../service/api"
 
 import TodoList from "./TodoList"
 
+import * as Styles from "../styles/dashboard.module.scss"
+
+import { Button, Container, Stack, TextField } from '@mui/material'
+
 const Dashboard = () => {
   const currentUser = useContext(AuthContext)
 
@@ -32,22 +36,25 @@ const Dashboard = () => {
 
   return (
     <>
-      <h1>ダッシュボード</h1>
-
       {dig(currentUser, "currentUser", "uid") && (
-        <form>
-          <input
-            onChange={(e) => setInputtedWord(e.target.value)}
-            placeholder="input"
-            value={inputtedWord}
-          />
+        <form className={Styles.form}>
+          <Stack spacing={3}>
+            <TextField
+              label="item"
+              required
+              onChange={(e) => setInputtedWord(e.target.value)}
+              value={inputtedWord}
+            />
 
-          <button
-            onClick={() => post()}
-            type="button"
-          >
-            追加
-          </button>
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={() => post()}
+              size="large"
+            >
+              追加
+            </Button>
+          </Stack>
         </form>
       )}
 

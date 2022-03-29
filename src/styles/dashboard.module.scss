@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+
+  input {
+    font-size: 2rem;
+
+    &:placeholder-shown {
+      color: #ccc;
+    }
+  }
+
+  button {
+    font-size: 2rem;
+  }
+
+  label {
+    font-size: 2.2rem;
+  }
+}
