@@ -9,6 +9,8 @@ import TodoList from "./TodoList"
 
 import * as Styles from "../styles/dashboard.module.scss"
 
+import { Button, Container, Stack, TextField } from '@mui/material'
+
 const Dashboard = () => {
   const currentUser = useContext(AuthContext)
 
@@ -36,18 +38,23 @@ const Dashboard = () => {
     <>
       {dig(currentUser, "currentUser", "uid") && (
         <form className={Styles.form}>
-          <input
-            onChange={(e) => setInputtedWord(e.target.value)}
-            placeholder="input"
-            value={inputtedWord}
-          />
+          <Stack spacing={3}>
+            <TextField
+              label="item"
+              required
+              onChange={(e) => setInputtedWord(e.target.value)}
+              value={inputtedWord}
+            />
 
-          <button
-            onClick={() => post()}
-            type="button"
-          >
-            追加
-          </button>
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={() => post()}
+              size="large"
+            >
+              追加
+            </Button>
+          </Stack>
         </form>
       )}
 

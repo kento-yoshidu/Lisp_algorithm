@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-  border: 1px solid blue;
   margin-bottom: 30px;
 
   input {
@@ -15,5 +14,9 @@
 
   button {
     font-size: 2rem;
+  }
+
+  label {
+    font-size: 2.2rem;
   }
 }
