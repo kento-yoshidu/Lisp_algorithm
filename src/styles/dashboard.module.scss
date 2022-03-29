@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  border: 1px solid blue;
+  margin-bottom: 30px;
+
+  input {
+    font-size: 2rem;
+
+    &:placeholder-shown {
+      color: #ccc;
+    }
+  }
+
+  button {
+    font-size: 2rem;
+  }
+}

@@ -7,6 +7,8 @@ import * as Api from "../service/api"
 
 import TodoList from "./TodoList"
 
+import * as Styles from "../styles/dashboard.module.scss"
+
 const Dashboard = () => {
   const currentUser = useContext(AuthContext)
 
@@ -32,10 +34,8 @@ const Dashboard = () => {
 
   return (
     <>
-      <h1>ダッシュボード</h1>
-
       {dig(currentUser, "currentUser", "uid") && (
-        <form>
+        <form className={Styles.form}>
           <input
             onChange={(e) => setInputtedWord(e.target.value)}
             placeholder="input"
