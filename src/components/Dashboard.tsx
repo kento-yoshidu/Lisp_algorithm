@@ -9,7 +9,7 @@ import TodoList from "./TodoList"
 
 import * as Styles from "../styles/dashboard.module.scss"
 
-import { Button, Container, Stack, TextField } from '@mui/material'
+import { Button, Stack, TextField } from '@mui/material'
 
 const Dashboard = () => {
   const currentUser = useContext(AuthContext)
