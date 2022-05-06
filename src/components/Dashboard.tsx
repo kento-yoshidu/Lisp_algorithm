@@ -9,7 +9,7 @@ import TodoList from "./TodoList"
 
 import * as Styles from "../styles/dashboard.module.scss"
 
-import { Button, Stack, TextField } from '@mui/material'
+import { Button, Stack, TextField } from "@mui/material"
 
 const Dashboard = () => {
   const currentUser = useContext(AuthContext)
@@ -19,11 +19,11 @@ const Dashboard = () => {
 
   const fetch = async () => {
     if (dig(currentUser, "currentUser", "uid")) {
-      const itemList = await Api.TodoGet(currentUser?.currentUser?.uid)
+      const itemList = await Api.todoGet(currentUser?.currentUser?.uid)
       await setItemList(itemList)
     }
   }
-  
+
   useEffect(() => {
     fetch()
   }, [currentUser])
