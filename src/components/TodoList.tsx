@@ -1,23 +1,23 @@
 import React from "react"
 
-import { DeleteItem } from "../service/api"
+import { deleteItem } from "../service/api"
 
 // MUI
-import { Button, Stack, TextField } from '@mui/material'
-import DeleteIcon from '@mui/icons-material/Delete';
+import { Button } from "@mui/material"
+import DeleteIcon from "@mui/icons-material/Delete"
 
 import * as Styles from "../styles/todoList.module.scss"
 
-const TodoList = ({ todos, fetch }: { todos: Item[], fetch: Function}) => {
+const TodoList = ({ todos, fetch }: { todos: Item[], fetch: VoidFunction}) => {
   const clickHandle = (id: string) => {
-    DeleteItem(id)
+    deleteItem(id)
     fetch()
   }
 
   return (
     <>
       {todos.length !== 0 ? (
-        <ul className={Styles.todoList}>
+        <ul /* >className={Styles.todoList} */>
           {todos.map((todo) => (
             <li
               className={Styles.listItem}

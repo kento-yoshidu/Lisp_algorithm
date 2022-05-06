@@ -11,8 +11,8 @@ if (!firebase.apps.length) {
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_SENDER_ID,
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
-  });
+    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+  })
 }
 
 const googleProvider = new firebase.auth.GoogleAuthProvider()
@@ -22,17 +22,17 @@ export const db = firebase.firestore()
 
 export const signInWithGoogle = () => {
   firebase.auth().signInWithPopup(googleProvider)
-    .catch((err) => {
-      console.log(err)
-    })
+      .catch((err) => {
+        console.log(err)
+      })
 }
 
 export const logOut = () => {
   firebase.auth().signOut()
-    .then(() => {
-      document.location.reload()
-    })
-    .catch((err) => {
-      console.log("ログアウト時にエラー発生\nfirebase.ts\n", err)
-    })
+      .then(() => {
+        document.location.reload()
+      })
+      .catch((err) => {
+        console.log("ログアウト時にエラー発生\nfirebase.ts\n", err)
+      })
 }
