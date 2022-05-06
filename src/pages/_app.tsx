@@ -1,12 +1,13 @@
-import '../scss/globals.scss'
-import type { AppProps } from 'next/app'
+import React from "react"
+import "../scss/globals.scss"
+import type { AppProps } from "next/app"
 import "../service/firebase"
 
-import Header from '../components/Header'
-import Dashboard from '../components/Dashboard'
+import Header from "../components/Header"
+// import Dashboard from "../components/Dashboard"
 import { AuthProvider } from "../provider/AuthProvider"
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <AuthProvider>
       <Header />
@@ -14,4 +15,5 @@ function MyApp({ Component, pageProps }: AppProps) {
     </AuthProvider>
   )
 }
+
 export default MyApp

@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import type { NextPage } from 'next'
+import type { NextPage } from "next"
 
 // @ts-ignore
 import dig from "object-dig"
