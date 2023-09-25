@@ -1,3 +1,5 @@
+; https://atcoder.jp/contests/abc064/tasks/abc064_a
+
 (defun rgb_cards (r g b)
   (setq temp (+ (* r 100) (* g 10) b))
   (if (eq 0 (rem temp 4))
